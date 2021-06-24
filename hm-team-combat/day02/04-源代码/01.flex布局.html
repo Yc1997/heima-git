@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .list {
+        /*
+          第一个参数表示: flex-grow 定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大
+          第二个参数表示: flex-shrink 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+          第三个参数表示: flex-basis给上面两个属性分配多余空间之前, 计算项目是否有多余空间, 默认值为 auto, 即项目本身的大小
+        */
+        flex:0 0 30%;
+        /* flex:30%; */
+        height: 100px;
+        background-color: skyblue;
+        margin:10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="list"></div>
+      <div class="list"></div>
+      <div class="list"></div>
+      <div class="list"></div>
+      <div class="list"></div>
+      <div class="list"></div>
+      <div class="list"></div>
+    </div>
+  </body>
+</html>

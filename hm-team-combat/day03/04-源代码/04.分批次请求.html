@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0-0/axios.js"></script>
+  </head>
+  <body>
+    <script>
+      let url =
+        'http://www.tianqiapi.com/api?version=v9&appid=23035354&appsecret=8YvlPNrz&id='
+
+      // 如果没有函数的话，axios.get直接就发请求了
+      function request10 (num) {
+        let arr = []
+        for (let i = 1; i < 11; i++) {
+          arr.push(axios.get(url + (num*10+i)))
+        }
+        return arr
+      }
+
+      async function requestAll () {
+        for (let i = 0; i < 20; i++) {
+          // await 修饰的语句是同步，会等待的
+          await Promise.all(request10(i))//promise.all里面一次发10个请求
+          // await后面的语句会等待执行
+          console.log('会等待请求吗')
+          // await Promise.all(arr)
+        }
+      }
+
+      requestAll()
+    </script>
+  </body>
+</html>

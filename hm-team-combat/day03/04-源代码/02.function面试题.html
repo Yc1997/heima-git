@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var aa = 12
+      /*
+      相当于 var aa = undefined
+      aa = 12
+      */
+      // 函数表达式，会分解先声明后赋值
+      var foo = function () {
+        console.log('flyme')
+      }
+
+      ;(function () {
+        // var foo = undefined
+        // arguments不是数组，没有slice方法,typeof undefined为undefined
+        console.log(typeof arguments.slice) //undefined
+        console.log(foo()) //hi
+        console.log(typeof bar) //undefined，bar还没有初始化
+        function foo () {
+          return 'hello'
+        }
+        // 先声明，后初始化
+        var foo = 'meizu',
+          // 先声明后初始化
+          bar = function () {
+            return 'world'
+          }
+
+        // 声明即初始化,会提升
+        function foo () {
+          return 'hi'
+        }
+
+        console.log(typeof bar) //function
+
+        console.log(typeof foo) //string
+      })(1, 2, 3)
+      // 打印：undefined,hi,undefined,function,string
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 闭包就是函数里包括函数
+      function cal () {
+        let num = 99
+        function add () {
+          num++
+          console.log('我是方法add', num)
+        }
+        return add
+      }
+
+      let aa = cal()
+
+      aa()
+      aa()
+      aa()
+      aa()
+    </script>
+  </body>
+</html>
